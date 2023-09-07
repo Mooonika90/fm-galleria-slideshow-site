@@ -1,6 +1,7 @@
 import { Data } from '../data/data';
 import Macy from 'macy';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const macyOptions = {
 	container: '.grid',
@@ -24,13 +25,15 @@ function Main() {
 	return (
 		<section className='grid'>
 			{Data?.map((d, index) => (
-				<figure key={index}>
-					<img src={d?.images?.thumbnail} alt={d?.name} />
-					<figcaption>
-						<h2>{d?.name}</h2>
-						<h3>{d?.artist?.name}</h3>
-					</figcaption>
-				</figure>
+				<Link to={`/slides/${index}`} key={index}>
+					<figure>
+						<img src={d?.images?.thumbnail} alt={d?.name} />
+						<figcaption>
+							<h2>{d?.name}</h2>
+							<h3>{d?.artist?.name}</h3>
+						</figcaption>
+					</figure>
+				</Link>
 			))}
 		</section>
 	);
