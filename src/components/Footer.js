@@ -1,11 +1,11 @@
 import next from '../assets/icon-next-button.svg';
 import back from '../assets/icon-back-button.svg';
-function Footer() {
+function Footer({ title, artist }) {
 	return (
 		<footer>
 			<div>
-				<p>Scary Night</p>
-				<p>Vincent</p>
+				<p>{title}</p>
+				<p>{artist}</p>
 			</div>
 			<div>
 				<a>
