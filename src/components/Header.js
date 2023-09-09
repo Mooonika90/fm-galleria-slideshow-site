@@ -1,10 +1,15 @@
 import logo from '../assets/logo.svg';
+
 function Header() {
 	return (
 		<header>
-			<img src={logo} alt='logo' />
+			<nav>
+				<img className='logo' src={logo} alt='Logo' />
 
-			<a href='/'> Start slideshow</a>
+				<a href='/'> Start slideshow</a>
+			</nav>
+
+			<hr />
 		</header>
 	);
 }
