@@ -265,6 +265,14 @@ blockquote div a {
 	font-weight: bold;
 	letter-spacing: 3px;
 }
+.progressBar {
+	position: absolute;
+	top: 0;
+	background: black;
+	height: 0.06rem;
+	z-index: 2;
+	transition: 0.3s all ease-in-out;
+}
 
 @media (max-width: 1200px) {
 	.slide {

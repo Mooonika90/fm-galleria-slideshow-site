@@ -1,6 +1,6 @@
 import next from '../assets/icon-next-button.svg';
 import back from '../assets/icon-back-button.svg';
-function Footer({ title, artist }) {
+function Footer({ title, artist, goToNextSlide, goToPreviousSlide }) {
 	return (
 		<footer>
 			<div>
@@ -8,10 +8,10 @@ function Footer({ title, artist }) {
 				<p>{artist}</p>
 			</div>
 			<div>
-				<a>
+				<a onClick={goToPreviousSlide}>
 					<img src={back} alt='' />
 				</a>
-				<a>
+				<a onClick={goToNextSlide}>
 					<img src={next} alt='' />
 				</a>
 			</div>

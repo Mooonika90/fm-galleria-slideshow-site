@@ -24,8 +24,8 @@ function Main() {
 	}, []);
 	return (
 		<section className='grid'>
-			{Data?.map((d, index) => (
-				<Link to={`/slides/${index}`} key={index}>
+			{Data?.map((d, slideIndex) => (
+				<Link to={`/slides/${slideIndex}`} key={slideIndex}>
 					<figure>
 						<img src={d?.images?.thumbnail} alt={d?.name} />
 						<figcaption>

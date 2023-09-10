@@ -2,17 +2,26 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { Data } from '../data/data';
 import Footer from '../components/Footer';
+import Modal from '../components/Modal';
 import view from '../assets/icon-view-image.svg';
 
 function Slides() {
-	const { index } = useParams();
+	const { slideIndex } = useParams();
+	const [index, setIndex] = useState(slideIndex);
 	const selectedPhoto = Data[index];
 	const [openModal, setOpenModal] = useState(false);
-	console.log(selectedPhoto);
+
 	if (!selectedPhoto) {
 		return <div>Photo not found</div>;
 	}
 
+	const goToNextSlide = () => {
+		setIndex((prevIndex) => (prevIndex + 1) % Data.length);
+	};
+
+	const goToPreviousSlide = () => {
+		setIndex((prevIndex) => (prevIndex - 1 + Data.length) % Data.length);
+	};
 	const showModal = () => {
 		setOpenModal((prevOpen) => !prevOpen);
 	};
@@ -57,18 +66,11 @@ function Slides() {
 			<Footer
 				artist={selectedPhoto?.artist?.name}
 				title={selectedPhoto?.name}
+				goToNextSlide={goToNextSlide}
+				goToPreviousSlide={goToPreviousSlide}
 			/>
 			{openModal && (
-				<div className='image-modal'>
-					<span className='close' onClick={showModal}>
-						close
-					</span>
-					<img
-						src={`.${selectedPhoto.images?.hero?.large}`}
-						alt={selectedPhoto?.name}
-						className='modal-image'
-					/>
-				</div>
+				<Modal selectedPhoto={selectedPhoto} closeModal={showModal} />
 			)}
 		</>
 	);
