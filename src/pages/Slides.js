@@ -1,17 +1,21 @@
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import { Data } from '../data/data';
 import Footer from '../components/Footer';
-import view  from '../assets/icon-view-image.svg';
+import view from '../assets/icon-view-image.svg';
 
 function Slides() {
 	const { index } = useParams();
 	const selectedPhoto = Data[index];
+	const [openModal, setOpenModal] = useState(false);
 	console.log(selectedPhoto);
 	if (!selectedPhoto) {
 		return <div>Photo not found</div>;
 	}
 
-	// <img class="painting-detail__image" src="./assets/girl-with-pearl-earring/hero-small.jpg" alt="" srcset="./assets/girl-with-pearl-earring/hero-small.jpg 600w, ./assets/girl-with-pearl-earring/hero-large.jpg 1440w"></img>
+	const showModal = () => {
+		setOpenModal((prevOpen) => !prevOpen);
+	};
 
 	return (
 		<>
@@ -33,7 +37,7 @@ function Slides() {
 							srcSet={`.${selectedPhoto.images?.hero?.small} 600w, .${selectedPhoto.images?.hero?.large} 1440w`}
 							alt={selectedPhoto?.name}
 						/>
-						<button className='show-photo'>
+						<button className='show-photo' onClick={showModal}>
 							<img src={view} alt='' />
 							view image
 						</button>
@@ -54,6 +58,18 @@ function Slides() {
 				artist={selectedPhoto?.artist?.name}
 				title={selectedPhoto?.name}
 			/>
+			{openModal && (
+				<div className='image-modal'>
+					<span className='close' onClick={showModal}>
+						close
+					</span>
+					<img
+						src={`.${selectedPhoto.images?.hero?.large}`}
+						alt={selectedPhoto?.name}
+						className='modal-image'
+					/>
+				</div>
+			)}
 		</>
 	);
 }

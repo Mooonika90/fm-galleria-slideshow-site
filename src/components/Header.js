@@ -4,8 +4,9 @@ function Header() {
 	return (
 		<header>
 			<nav>
-				<img className='logo' src={logo} alt='Logo' />
-
+				<a href='/'>
+					<img className='logo' src={logo} alt='Logo' />
+				</a>
 				<a href='/'> Start slideshow</a>
 			</nav>
 
