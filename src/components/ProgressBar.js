@@ -1,12 +1,11 @@
-import { Data } from '../data/data';
+import { useSlideIndex } from '../SlideIndexProvider';
 
-function ProgressBar({ index }) {
-	console.log(index);
+function ProgressBar() {
+	const { currentIndex, artworks } = useSlideIndex();
 	const progressBarStyles = {
-		width: `${(index / Data.length) * 100}%`,
+		width: `${(currentIndex / artworks.length) * 100}%`,
 	};
-	console.log(progressBarStyles);
-	console.log(Data.length);
+
 	return <div className='progressBar' style={progressBarStyles}></div>;
 }
 

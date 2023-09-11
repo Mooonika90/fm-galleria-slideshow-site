@@ -1,27 +1,24 @@
 import next from '../assets/icon-next-button.svg';
 import back from '../assets/icon-back-button.svg';
 import ProgressBar from './ProgressBar';
+import { useSlideIndex } from '../SlideIndexProvider';
 
-function Footer({
-	title,
-	artist,
-	goToNextSlide,
-	goToPreviousSlide,
-	progress,
-	index,
-}) {
+function Footer({ title, artist }) {
+	const { currentIndex, setCurrentIndex, artworks, nextSlide, prevSlide } =
+		useSlideIndex();
+
 	return (
 		<footer>
-			<ProgressBar progress={progress} index={index} />
+			<ProgressBar />
 			<div>
 				<p>{title}</p>
 				<p>{artist}</p>
 			</div>
 			<div>
-				<a onClick={goToPreviousSlide}>
+				<a onClick={prevSlide}>
 					<img src={back} alt='' />
 				</a>
-				<a onClick={goToNextSlide}>
+				<a onClick={nextSlide}>
 					<img src={next} alt='' />
 				</a>
 			</div>
