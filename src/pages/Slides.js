@@ -11,6 +11,8 @@ function Slides() {
 	const selectedPhoto = Data[index];
 	const [openModal, setOpenModal] = useState(false);
 
+	console.log(slideIndex);
+
 	if (!selectedPhoto) {
 		return <div>Photo not found</div>;
 	}
@@ -68,7 +70,7 @@ function Slides() {
 				title={selectedPhoto?.name}
 				goToNextSlide={goToNextSlide}
 				goToPreviousSlide={goToPreviousSlide}
-			/>
+				index={index}></Footer>
 			{openModal && (
 				<Modal selectedPhoto={selectedPhoto} closeModal={showModal} />
 			)}

@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { Data } from '../data/data';
 
-
-const ProgressBar = ({ currentImageIndex, images }) => {
-  const [progress, setProgress] = useState(0);
-  
-  useEffect(() => {
-    setProgress(((currentImageIndex + 1) / images.length) * 100);
-  }, [currentImageIndex, images]);
-
-  return (
-    <div className="progressBar" style={{ width: `${progress}%` }}></div>
-    
-  );
-};
+function ProgressBar({ index }) {
+	console.log(index);
+	const progressBarStyles = {
+		width: `${(index / Data.length) * 100}%`,
+	};
+	console.log(progressBarStyles);
+	console.log(Data.length);
+	return <div className='progressBar' style={progressBarStyles}></div>;
+}
 
 export default ProgressBar;

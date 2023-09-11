@@ -265,11 +265,15 @@ blockquote div a {
 	font-weight: bold;
 	letter-spacing: 3px;
 }
+
+footer {
+	position: relative;
+}
 .progressBar {
 	position: absolute;
 	top: 0;
 	background: black;
-	height: 0.06rem;
+	height: 0.6rem;
 	z-index: 2;
 	transition: 0.3s all ease-in-out;
 }
