@@ -2,6 +2,7 @@ import { Data } from '../data/data';
 import Macy from 'macy';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSlideIndex } from '../SlideIndexProvider';
 
 const macyOptions = {
 	container: '.grid',
@@ -19,13 +20,14 @@ const macyOptions = {
 };
 
 function Main() {
+	const { currentIndex } = useSlideIndex();
 	useEffect(() => {
 		new Macy(macyOptions);
 	}, []);
 	return (
 		<section className='grid'>
-			{Data?.map((d, slideIndex) => (
-				<Link to={`/slides/${slideIndex}`} key={slideIndex}>
+			{Data?.map((d, currentIndex) => (
+				<Link to={`/slides/${currentIndex}`} key={currentIndex}>
 					<figure>
 						<img src={d?.images?.thumbnail} alt={d?.name} />
 						<figcaption>

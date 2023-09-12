@@ -3,16 +3,16 @@ import logo from '../assets/logo.svg';
 import { useSlideIndex } from '../SlideIndexProvider';
 
 function Header() {
-	const { currentIndex } = useSlideIndex();
+	const { toggleSlideshow, isSlideshowActive } = useSlideIndex();
 	return (
 		<header>
 			<nav>
 				<a href='/'>
 					<img className='logo' src={logo} alt='Logo' />
 				</a>
-				<a href='/' className='slideLink'>
-					Start slideshow
-				</a>
+				<button className='slideLink' onClick={toggleSlideshow}>
+					{isSlideshowActive ? 'Stop slideshow' : 'Start slideshow'}
+				</button>
 			</nav>
 
 			<hr />

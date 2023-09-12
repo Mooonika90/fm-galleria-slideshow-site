@@ -6,7 +6,7 @@ import Modal from '../components/Modal';
 import view from '../assets/icon-view-image.svg';
 
 function Slides() {
-	const { slideIndex } = useParams();
+	// const { slideIndex } = useParams();
 	const { currentIndex, setCurrentIndex, artworks } = useSlideIndex();
 
 	const selectedPhoto = artworks[currentIndex];
@@ -59,8 +59,7 @@ function Slides() {
 
 			<Footer
 				artist={selectedPhoto?.artist?.name}
-				title={selectedPhoto?.name}
-				></Footer>
+				title={selectedPhoto?.name}></Footer>
 			{openModal && (
 				<Modal selectedPhoto={selectedPhoto} closeModal={showModal} />
 			)}
