@@ -17,6 +17,7 @@ export function SlideIndexProvider({ children }) {
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % Data.length);
 		navigate(`/slides/${(currentIndex + 1) % Data.length}`);
 	};
+
 	const prevSlide = () => {
 		setCurrentIndex((prevIndex) => (prevIndex - 1 + Data.length) % Data.length);
 		navigate(`/slides/${(currentIndex - 1 + Data.length) % Data.length}`);

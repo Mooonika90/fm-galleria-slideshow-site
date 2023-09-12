@@ -14,7 +14,7 @@ function App() {
 
 					<main>
 						<Routes>
-							<Route path='/slides/:currentIndex' element={<Slides />} />
+							<Route path='/slides/:slideIndex' element={<Slides />} />
 							<Route path='/' element={<Main />} />
 						</Routes>
 					</main>

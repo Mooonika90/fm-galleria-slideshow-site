@@ -6,10 +6,10 @@ import Modal from '../components/Modal';
 import view from '../assets/icon-view-image.svg';
 
 function Slides() {
-	// const { slideIndex } = useParams();
+	const { slideIndex } = useParams();
 	const { currentIndex, setCurrentIndex, artworks } = useSlideIndex();
 
-	const selectedPhoto = artworks[currentIndex];
+	const selectedPhoto = artworks[slideIndex];
 	const [openModal, setOpenModal] = useState(false);
 
 	if (!selectedPhoto) {
