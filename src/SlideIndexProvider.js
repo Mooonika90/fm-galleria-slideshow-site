@@ -12,6 +12,9 @@ export function SlideIndexProvider({ children }) {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isSlideshowActive, setSlideshowActive] = useState(false);
 	const navigate = useNavigate();
+	// const navName = encodeURIComponent(
+	// 	Data[(currentIndex - 1 + Data.length) % Data.length].name
+	// );
 
 	const nextSlide = () => {
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % Data.length);
@@ -30,8 +33,9 @@ export function SlideIndexProvider({ children }) {
 	useEffect(() => {
 		if (isSlideshowActive) {
 			interval = setInterval(() => {
-				nextSlide();
-			}, 3000);
+				setCurrentIndex((prevIndex) => (prevIndex + 1) % Data.length);
+				navigate(`/slides/${currentIndex}`);
+			}, 1000);
 		} else {
 			clearInterval(interval);
 		}
