@@ -3,6 +3,7 @@ import Macy from 'macy';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSlideIndex } from '../SlideIndexProvider';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const macyOptions = {
 	container: '.grid',
@@ -25,19 +26,25 @@ function Main() {
 		new Macy(macyOptions);
 	}, []);
 	return (
-		<section className='grid'>
-			{Data?.map((d, slideIndex) => (
-				<Link to={`/slides/${slideIndex}`} key={currentIndex}>
-					<figure>
-						<img src={d?.images?.thumbnail} alt={d?.name} />
-						<figcaption>
-							<h2>{d?.name}</h2>
-							<h3>{d?.artist?.name}</h3>
-						</figcaption>
-					</figure>
-				</Link>
-			))}
-		</section>
+		<AnimatePresence>
+			<section className='grid'>
+				{Data?.map((d, slideIndex) => (
+					<Link to={`/slides/${slideIndex}`} key={currentIndex}>
+						<motion.figure
+							key={slideIndex}
+							initial={{ opacity: 0, scale: 0.5 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 1 }}>
+							<img src={d?.images?.thumbnail} alt={d?.name} />
+							<figcaption>
+								<h2>{d?.name}</h2>
+								<h3>{d?.artist?.name}</h3>
+							</figcaption>
+						</motion.figure>
+					</Link>
+				))}
+			</section>
+		</AnimatePresence>
 	);
 }
 export default Main;

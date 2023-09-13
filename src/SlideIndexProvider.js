@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import { Data } from './data/data';
 
@@ -35,7 +36,7 @@ export function SlideIndexProvider({ children }) {
 			interval = setInterval(() => {
 				setCurrentIndex((prevIndex) => (prevIndex + 1) % Data.length);
 				navigate(`/slides/${currentIndex}`);
-			}, 1000);
+			}, 2000);
 		} else {
 			clearInterval(interval);
 		}
