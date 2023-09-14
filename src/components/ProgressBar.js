@@ -6,7 +6,11 @@ function ProgressBar() {
 		width: `${(currentIndex / artworks.length) * 100}%`,
 	};
 
-	return <div className='progressBar' style={progressBarStyles}></div>;
+	return (
+		<div className='progressIndicator'>
+			<div className='progressBar' style={progressBarStyles}></div>
+		</div>
+	);
 }
 
 export default ProgressBar;

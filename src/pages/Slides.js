@@ -33,6 +33,7 @@ function Slides() {
 					<div className='slideTop'>
 						<div className='imgMain'>
 							<img
+								className='imgHero'
 								src={`.${selectedPhoto.images?.hero?.small}`}
 								srcSet={`.${selectedPhoto.images?.hero?.small} 600w, .${selectedPhoto.images?.hero?.large} 2500w`}
 								alt={selectedPhoto?.name}

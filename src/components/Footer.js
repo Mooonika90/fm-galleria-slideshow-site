@@ -10,17 +10,27 @@ function Footer({ title, artist }) {
 	return (
 		<footer>
 			<ProgressBar />
-			<div>
-				<p>{title}</p>
-				<p>{artist}</p>
-			</div>
-			<div className='buttonsControl'>
-				<a onClick={prevSlide}>
-					<img src={back} alt='' />
-				</a>
-				<a onClick={nextSlide}>
-					<img src={next} alt='' />
-				</a>
+			<div className='wrappFooter'>
+				<div>
+					<h3>{title}</h3>
+					<p>{artist}</p>
+				</div>
+				<div className='buttonsControl'>
+					<a onClick={prevSlide}>
+						<img
+							src={back}
+							alt=''
+							className={currentIndex <= 0 ? 'disabled' : ''}
+						/>
+					</a>
+					<a onClick={nextSlide}>
+						<img
+							src={next}
+							alt=''
+							className={currentIndex >= 14 ? 'disabled' : ''}
+						/>
+					</a>
+				</div>
 			</div>
 		</footer>
 	);

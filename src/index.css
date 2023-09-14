@@ -86,7 +86,12 @@ select {
 	/* dynamic paddings */
 	--gap: min(1.5rem, 2vw);
 }
-
+.mainHeader,
+section,
+.wrappFooter {
+	width: min(100% - 3rem, 90rem);
+	margin: 0 auto;
+}
 header h1 {
 	text-align: center;
 }
@@ -120,11 +125,6 @@ footer {
 }
 
 .grid {
-	margin: 0 auto;
-}
-nav,
-main {
-	width: min(100% - 2rem, 90rem);
 	margin: 0 auto;
 }
 
@@ -164,76 +164,48 @@ figure figcaption h3 {
 	opacity: 0.8;
 }
 
-.slide {
-	display: flex;
-	gap: 5rem;
-	align-items: center;
-	padding-block: 1rem;
-}
-
 .slide h4 {
-	font-size: 12.5rem;
+	font-size: 6.3rem;
 	color: var(--light-grey);
 	font-weight: 700;
 	z-index: -1;
+	text-align: right;
 }
-.slide div {
-	display: flex;
-	justify-content: space-between;
-}
-
 .photoWrapper {
-	display: flex;
-	align-items: center;
-	order: 2;
-	justify-content: space-between;
-	flex-direction: column;
-	margin-bottom: -3rem;
+	margin-top: -3rem;
+	padding: 1.2rem;
+	width: 17.5rem;
+	background-color: var(--white);
+	margin-left: -0.1rem;
 }
 
 .photoWrapper header {
-	background-color: var(--white);
-	margin-left: -3rem;
-	margin-top: -0.1rem;
 	text-align: left;
-	padding-top: 0;
-	padding-left: 3rem;
-	z-index: 2;
 }
 .photoWrapper img {
-	justify-self: start;
-	/* margin-left: -3rem; */
-	padding-left: 0;
-	margin-left: -6rem;
+	width: 30%;
+	margin-top: 2rem;
+	margin-bottom: -4rem;
 }
 .photoWrapper header h2 {
-	font-size: 3.5rem;
+	font-size: 1.5rem;
 	font-weight: 700;
-	line-height: 4rem;
-	margin-bottom: 1rem;
+	line-height: 1.5;
+	z-index: 100;
+	width: 80%;
 }
 .photoWrapper header h3 {
 	color: var(--grey);
 	font-size: 0.937rem;
-	margin-bottom: 2rem;
 }
-blockquote {
-	text-align: right;
-	width: 40%;
-}
+
 blockquote div {
-	display: flex;
-	flex-direction: column;
-	margin-top: -7rem;
-	text-align: left;
 	color: var(--grey);
-	margin-left: -2rem;
 }
 blockquote div p {
-	margin-bottom: 8rem;
 	line-height: 1.75rem;
-	text-align: left;
-	width: 85%;
+	margin-top: -3.5rem;
+	margin-bottom: 4rem;
 }
 blockquote div a {
 	text-decoration: underline;
@@ -243,21 +215,26 @@ blockquote div a {
 }
 .imgMain {
 	position: relative;
+	z-index: -1;
+}
+.imgMain .imgHero {
+	width: 100%;
 }
 .showPhoto {
+	top: 1rem;
+	left: 1rem;
+	padding: 0.7rem;
 	background-color: var(--black);
 	opacity: 0.8;
 	position: absolute;
-	bottom: 2%;
-	left: 2%;
 	color: var(--white);
 	display: flex;
 	align-items: center;
-	padding: 0.9rem;
 	gap: 0.5rem;
 	text-transform: uppercase;
 	border: 0;
 	font-size: 0.625rem;
+	letter-spacing: 2.14px;
 	cursor: pointer;
 }
 
@@ -297,63 +274,83 @@ blockquote div a {
 footer {
 	position: relative;
 	margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
 }
 .progressBar {
-	position: absolute;
 	top: 0;
 	background: black;
-	height: 0.1rem;
+	height: 100%;
 	z-index: 2;
 	transition: 0.3s all ease-in-out;
 }
-
+.progressIndicator {
+	background: var(--midle-grey);
+	width: 100%;
+	height: 0.1rem;
+}
+.wrappFooter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-block: 1rem;
+}
 .buttonsControl {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
+	cursor: pointer;
 }
 
 .buttonsControl a {
 	color: var(--grey);
 }
-
-@media (max-width: 50rem) {
-	.slide {
-		flex-direction: column;
-	}
+.wrappFooter p {
+	margin-top: 0.5rem;
+	font-size: 0.625rem;
+	color: var(--grey);
 }
 
-/* @media (max-width: 75rem) {
-	.slide {
-		justify-content: center;
-	}
-	.photoWrapper header {
-		margin-left: -14rem;
-		padding-left: 6rem;
-		z-index: 2;
-	}
-	blockquote h4 {
+.wrappFooter h3 {
+	font-size: 0.875rem;
+}
+.buttonsControl .disabled {
+	opacity: 0.2;
+}
+@media (min-width: 50rem) {
+	.slide h4 {
+		font-size: 12.5rem;
 		text-align: left;
 	}
-	blockquote div {
-		margin-top: -9rem;
-		width: 70%;
-		display: flex;
-		margin-inline: auto;
-		flex-direction: column;
-	}
-
 	blockquote div p {
-		margin-bottom: 5rem;
+		margin-top: -7rem;
+		width: 70%;
+		text-align: left;
+		margin-inline: auto;
+		line-height: 2.2rem;
 	}
-} */
+	.photoWrapper img {
+		width: 50%;
+	}
 
-@media (min-width: 250px) and (max-width: 48rem) {
-	.showPhoto {
-		bottom: auto;
-		top: 1rem;
-		left: 1rem;
-		padding: 1rem;
+	.photoWrapper header h2 {
+		font-size: 3.5rem;
+	}
+
+	.imgMain .imgHero {
+		width: 150%;
+		
+	}
+	.slideTop {
+		display: flex;
+		justify-content: center;
+		width: 100%;
 	}
 }
+/* .slide 7
+	display: flex2
+	gap: 5rem;
+	align-items: center;
+	padding-block: 1rem;
+} */
