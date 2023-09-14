@@ -30,8 +30,19 @@ function Slides() {
 					initial={{ opacity: 0, scale: 0.9 }}
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 1 }}>
-					<div>
-						<div className='photo-wrapper'>
+					<div className='slideTop'>
+						<div className='imgMain'>
+							<img
+								src={`.${selectedPhoto.images?.hero?.small}`}
+								srcSet={`.${selectedPhoto.images?.hero?.small} 600w, .${selectedPhoto.images?.hero?.large} 2500w`}
+								alt={selectedPhoto?.name}
+							/>
+							<button className='showPhoto' onClick={showModal}>
+								<img src={view} alt='' />
+								view image
+							</button>
+						</div>
+						<div className='photoWrapper'>
 							<header>
 								<h2>{selectedPhoto?.name}</h2>
 								<h3>{selectedPhoto?.artist?.name}</h3>
@@ -40,17 +51,6 @@ function Slides() {
 								src={`.${selectedPhoto?.artist?.image}`}
 								alt={selectedPhoto?.name}
 							/>
-						</div>
-						<div className='img-main'>
-							<img
-								src={`.${selectedPhoto.images?.hero?.small}`}
-								srcSet={`.${selectedPhoto.images?.hero?.small} 600w, .${selectedPhoto.images?.hero?.large} 1440w`}
-								alt={selectedPhoto?.name}
-							/>
-							<button className='show-photo' onClick={showModal}>
-								<img src={view} alt='' />
-								view image
-							</button>
 						</div>
 					</div>
 					<blockquote>

@@ -58,16 +58,7 @@ body {
 	scroll-behavior: smooth;
 	-ms-overflow-style: none; /* for Internet Explorer, Edge */
 	scrollbar-width: none; /* for Firefox */
-
-	width: min(100% - 2rem, 90rem);
-
-	margin: 0 auto;
 }
-
-/* main {
-	width: clamp(20rem, 90vw, 90rem);
-	margin: auto;
-} */
 
 body,
 button,
@@ -76,7 +67,6 @@ table,
 textarea,
 select {
 	font: normal 1.126em/1.5 'Libre Baskerville', arial, helvetica, sans-serif;
-	/* font-family: 'Libre Baskerville', serif; */
 }
 
 :root {
@@ -104,12 +94,12 @@ a {
 	text-decoration: none;
 	color: var(--black);
 }
-header {
-	padding-block: 1.5rem;
-}
-nav {
+.mainHeader {
+	padding-block: 0.5rem;
 	border-bottom: 1px solid var(--midle-grey);
+	margin-bottom: 2rem;
 }
+
 header nav,
 footer {
 	display: flex;
@@ -117,13 +107,38 @@ footer {
 	justify-content: space-between;
 	padding-block: 1rem;
 }
+.slideLink {
+	border: none;
+	background: none;
+	color: var(--grey);
+	text-align: right;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2.571px;
+	cursor: pointer;
+}
 
 .grid {
+	margin: 0 auto;
+}
+nav,
+main {
+	width: min(100% - 2rem, 90rem);
 	margin: 0 auto;
 }
 
 figure {
 	position: relative;
+}
+
+nav button,
+section a {
+	transition: opacity 0.5s;
+}
+nav button:hover,
+section a:hover {
+	opacity: 0.7;
 }
 
 figure img {
@@ -151,9 +166,9 @@ figure figcaption h3 {
 
 .slide {
 	display: flex;
-	gap: var(--gap);
-	justify-content: space-between;
-	flex-wrap: wrap;
+	gap: 5rem;
+	align-items: center;
+	padding-block: 1rem;
 }
 
 .slide h4 {
@@ -164,11 +179,10 @@ figure figcaption h3 {
 }
 .slide div {
 	display: flex;
-
 	justify-content: space-between;
 }
 
-.photo-wrapper {
+.photoWrapper {
 	display: flex;
 	align-items: center;
 	order: 2;
@@ -177,35 +191,49 @@ figure figcaption h3 {
 	margin-bottom: -3rem;
 }
 
-.photo-wrapper header {
+.photoWrapper header {
 	background-color: var(--white);
-	margin-left: -4rem;
+	margin-left: -3rem;
 	margin-top: -0.1rem;
 	text-align: left;
 	padding-top: 0;
 	padding-left: 3rem;
 	z-index: 2;
 }
-.photo-wrapper header h2 {
+.photoWrapper img {
+	justify-self: start;
+	/* margin-left: -3rem; */
+	padding-left: 0;
+	margin-left: -6rem;
+}
+.photoWrapper header h2 {
 	font-size: 3.5rem;
 	font-weight: 700;
 	line-height: 4rem;
 	margin-bottom: 1rem;
 }
-.photo-wrapper header h3 {
+.photoWrapper header h3 {
 	color: var(--grey);
 	font-size: 0.937rem;
 	margin-bottom: 2rem;
 }
+blockquote {
+	text-align: right;
+	width: 40%;
+}
 blockquote div {
+	display: flex;
+	flex-direction: column;
 	margin-top: -7rem;
-	width: 21.875rem;
+	text-align: left;
 	color: var(--grey);
+	margin-left: -2rem;
 }
 blockquote div p {
 	margin-bottom: 8rem;
 	line-height: 1.75rem;
 	text-align: left;
+	width: 85%;
 }
 blockquote div a {
 	text-decoration: underline;
@@ -213,20 +241,20 @@ blockquote div a {
 	color: var(--grey);
 	cursor: pointer;
 }
-.img-main {
+.imgMain {
 	position: relative;
 }
-.show-photo {
+.showPhoto {
 	background-color: var(--black);
 	opacity: 0.8;
 	position: absolute;
-	bottom: 0;
-	margin: 2rem;
+	bottom: 2%;
+	left: 2%;
 	color: var(--white);
 	display: flex;
 	align-items: center;
-	padding: 0.5rem;
-	gap: 0.3rem;
+	padding: 0.9rem;
+	gap: 0.5rem;
 	text-transform: uppercase;
 	border: 0;
 	font-size: 0.625rem;
@@ -268,21 +296,39 @@ blockquote div a {
 
 footer {
 	position: relative;
+	margin-top: 3rem;
 }
 .progressBar {
 	position: absolute;
 	top: 0;
 	background: black;
-	height: 0.6rem;
+	height: 0.1rem;
 	z-index: 2;
 	transition: 0.3s all ease-in-out;
 }
 
-@media (max-width: 1200px) {
+.buttonsControl {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.buttonsControl a {
+	color: var(--grey);
+}
+
+@media (max-width: 50rem) {
+	.slide {
+		flex-direction: column;
+	}
+}
+
+/* @media (max-width: 75rem) {
 	.slide {
 		justify-content: center;
 	}
-	.photo-wrapper header {
+	.photoWrapper header {
 		margin-left: -14rem;
 		padding-left: 6rem;
 		z-index: 2;
@@ -300,5 +346,14 @@ footer {
 
 	blockquote div p {
 		margin-bottom: 5rem;
+	}
+} */
+
+@media (min-width: 250px) and (max-width: 48rem) {
+	.showPhoto {
+		bottom: auto;
+		top: 1rem;
+		left: 1rem;
+		padding: 1rem;
 	}
 }

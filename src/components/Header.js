@@ -5,7 +5,7 @@ import { useSlideIndex } from '../SlideIndexProvider';
 function Header() {
 	const { toggleSlideshow, isSlideshowActive } = useSlideIndex();
 	return (
-		<header>
+		<header className='mainHeader'>
 			<nav>
 				<a href='/'>
 					<img className='logo' src={logo} alt='Logo' />

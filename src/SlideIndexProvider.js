@@ -13,9 +13,6 @@ export function SlideIndexProvider({ children }) {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isSlideshowActive, setSlideshowActive] = useState(false);
 	const navigate = useNavigate();
-	// const navName = encodeURIComponent(
-	// 	Data[(currentIndex - 1 + Data.length) % Data.length].name
-	// );
 
 	const nextSlide = () => {
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % Data.length);

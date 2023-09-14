@@ -14,7 +14,7 @@ function Footer({ title, artist }) {
 				<p>{title}</p>
 				<p>{artist}</p>
 			</div>
-			<div>
+			<div className='buttonsControl'>
 				<a onClick={prevSlide}>
 					<img src={back} alt='' />
 				</a>
