@@ -29,7 +29,7 @@ function Main() {
 		<AnimatePresence>
 			<section className='grid'>
 				{Data?.map((d, slideIndex) => (
-					<Link to={`/slides/${slideIndex}`} key={currentIndex}>
+					<Link to={`/slides/${slideIndex}`} key={slideIndex}>
 						<motion.figure
 							key={slideIndex}
 							initial={{ opacity: 0, scale: 0.5 }}

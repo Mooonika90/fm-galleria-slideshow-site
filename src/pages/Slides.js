@@ -26,7 +26,7 @@ function Slides() {
 			<AnimatePresence>
 				<motion.section
 					className='slide'
-					key={slideIndex}
+					key={currentIndex}
 					initial={{ opacity: 0, scale: 0.9 }}
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 1 }}>
