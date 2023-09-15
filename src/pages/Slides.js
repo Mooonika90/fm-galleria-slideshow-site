@@ -35,7 +35,7 @@ function Slides() {
 							<img
 								className='imgHero'
 								src={`.${selectedPhoto.images?.hero?.small}`}
-								srcSet={`.${selectedPhoto.images?.hero?.small} 600w, .${selectedPhoto.images?.hero?.large} 2500w`}
+								srcSet={`.${selectedPhoto.images?.hero?.small} 600w, .${selectedPhoto.images?.hero?.large} 1200w`}
 								alt={selectedPhoto?.name}
 							/>
 							<button className='showPhoto' onClick={showModal}>

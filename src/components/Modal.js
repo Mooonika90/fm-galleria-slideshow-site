@@ -1,15 +1,13 @@
-
-
 function Modal({ selectedPhoto, closeModal }) {
 	return (
-		<div className='image-modal'>
+		<div className='imageModal'>
 			<span className='close' onClick={closeModal}>
 				close
 			</span>
 			<img
 				src={`.${selectedPhoto.images?.hero?.large}`}
 				alt={selectedPhoto?.name}
-				className='modal-image'
+				className='modalImage'
 			/>
 		</div>
 	);
