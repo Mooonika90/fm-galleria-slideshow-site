@@ -35,7 +35,11 @@ function Main() {
 							initial={{ opacity: 0, scale: 0.5 }}
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{ duration: 1 }}>
-							<img src={d?.images?.thumbnail} alt={d?.name} />
+							<img
+								src={`${process.env.PUBLIC_URL}${d?.images?.thumbnail}`}
+								alt={d?.name}
+							/>
+
 							<figcaption>
 								<h2>{d?.name}</h2>
 								<h3>{d?.artist?.name}</h3>
