@@ -7,7 +7,7 @@ function Header() {
 	return (
 		<header className='mainHeader'>
 			<nav>
-				<Link to={'/'}>
+				<Link to={'/fm-galleria-slideshow-site/'}>
 					<img className='logo' src={logo} alt='Logo' />
 				</Link>
 				<button className='slideLink' onClick={toggleSlideshow}>
