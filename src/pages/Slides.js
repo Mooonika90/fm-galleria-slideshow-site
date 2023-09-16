@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useSlideIndex } from '../SlideIndexProvider';
 import { motion, AnimatePresence } from 'framer-motion';
-import Footer from '../components/Footer';
 import Modal from '../components/Modal';
 import view from '../assets/icon-view-image.svg';
 
@@ -66,9 +65,7 @@ function Slides() {
 				</motion.section>
 			</AnimatePresence>
 
-			<Footer
-				artist={selectedPhoto?.artist?.name}
-				title={selectedPhoto?.name}></Footer>
+		
 			{openModal && (
 				<Modal selectedPhoto={selectedPhoto} closeModal={showModal} />
 			)}
