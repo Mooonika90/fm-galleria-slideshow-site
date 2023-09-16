@@ -1,5 +1,5 @@
 import logo from '../assets/logo.svg';
-
+import { Link } from 'react-router-dom';
 import { useSlideIndex } from '../SlideIndexProvider';
 
 function Header() {
@@ -7,9 +7,9 @@ function Header() {
 	return (
 		<header className='mainHeader'>
 			<nav>
-				<a href='/'>
+				<Link to={'/'}>
 					<img className='logo' src={logo} alt='Logo' />
-				</a>
+				</Link>
 				<button className='slideLink' onClick={toggleSlideshow}>
 					{isSlideshowActive ? 'Stop slideshow' : 'Start slideshow'}
 				</button>
