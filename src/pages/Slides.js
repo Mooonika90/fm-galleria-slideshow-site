@@ -65,7 +65,6 @@ function Slides() {
 				</motion.section>
 			</AnimatePresence>
 
-		
 			{openModal && (
 				<Modal selectedPhoto={selectedPhoto} closeModal={showModal} />
 			)}
