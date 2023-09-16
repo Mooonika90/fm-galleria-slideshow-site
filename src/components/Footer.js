@@ -3,9 +3,8 @@ import back from '../assets/icon-back-button.svg';
 import ProgressBar from './ProgressBar';
 import { useSlideIndex } from '../SlideIndexProvider';
 
-function Footer({  artist }) {
-	const { currentIndex, setCurrentIndex, artworks, nextSlide, prevSlide } =
-		useSlideIndex();
+function Footer() {
+	const { currentIndex, artworks, nextSlide, prevSlide } = useSlideIndex();
 
 	return (
 		<footer>
@@ -13,7 +12,7 @@ function Footer({  artist }) {
 			<div className='wrappFooter'>
 				<div>
 					<h3>{artworks[currentIndex].name}</h3>
-					<p>{artist}</p>
+					<p>{artworks[currentIndex].artist.name}</p>
 				</div>
 				<div className='buttonsControl'>
 					<a onClick={prevSlide}>
