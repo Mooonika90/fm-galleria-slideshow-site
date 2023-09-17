@@ -3,7 +3,6 @@ import back from '../assets/icon-back-button.svg';
 import ProgressBar from './ProgressBar';
 import { useSlideIndex } from '../SlideIndexProvider';
 
-
 function Footer() {
 	const { currentIndex, artworks, nextSlide, prevSlide } = useSlideIndex();
 

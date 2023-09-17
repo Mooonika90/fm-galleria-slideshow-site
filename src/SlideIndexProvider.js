@@ -16,7 +16,7 @@ export function SlideIndexProvider({ children }) {
 
 	const nextSlide = () => {
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % Data.length);
-		navigate(`/slides/${(currentIndex + 1) % Data.length}`);
+		navigate(`/slides/${(currentIndex + 1 + Data.length) % Data.length}`);
 	};
 
 	const prevSlide = () => {
@@ -32,7 +32,7 @@ export function SlideIndexProvider({ children }) {
 		if (isSlideshowActive) {
 			interval = setInterval(() => {
 				setCurrentIndex((prevIndex) => (prevIndex + 1) % Data.length);
-				navigate(`/slides/${currentIndex}`);
+				navigate(`/slides/${(currentIndex + 1 + Data.length) % Data.length}`);
 			}, 2000);
 		} else {
 			clearInterval(interval);

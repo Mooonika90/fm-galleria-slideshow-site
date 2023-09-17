@@ -2,8 +2,8 @@ import { Data } from '../data/data';
 import Macy from 'macy';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSlideIndex } from '../SlideIndexProvider';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSlideIndex } from '../SlideIndexProvider';
 
 const macyOptions = {
 	container: '.grid',
@@ -21,17 +21,25 @@ const macyOptions = {
 };
 
 function Main() {
-	const { currentIndex } = useSlideIndex();
+	const { setCurrentIndex } = useSlideIndex();
 	useEffect(() => {
 		new Macy(macyOptions);
 	}, []);
+
+	const handlePhotoClick = (currentIndex) => {
+		setCurrentIndex(currentIndex);
+	};
+
 	return (
 		<AnimatePresence>
 			<section className='grid'>
-				{Data?.map((d, slideIndex) => (
-					<Link to={`/slides/${slideIndex}`} key={slideIndex}>
+				{Data?.map((d, currentIndex) => (
+					<Link
+						to={`/slides/${currentIndex}`}
+						key={currentIndex}
+						onClick={() => handlePhotoClick(currentIndex)}>
 						<motion.figure
-							key={slideIndex}
+							key={currentIndex}
 							initial={{ opacity: 0, scale: 0.5 }}
 							animate={{ opacity: 1, scale: 1 }}
 							transition={{ duration: 1 }}>

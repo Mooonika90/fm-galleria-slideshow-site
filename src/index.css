@@ -104,6 +104,9 @@ a {
 	border-bottom: 1px solid var(--midle-grey);
 	margin-bottom: 2rem;
 }
+.notFound {
+	text-align: center;
+}
 
 header nav,
 footer {
@@ -171,6 +174,7 @@ figure figcaption h3 {
 }
 section {
 	min-height: 100%;
+	padding-bottom: 2rem;
 }
 .slide h4 {
 	font-size: 6.3rem;
@@ -193,6 +197,7 @@ section {
 .photoWrapper img {
 	width: 30%;
 	margin-top: 2rem;
+	margin-left: -0.5rem;
 	margin-bottom: -4rem;
 }
 .photoWrapper header h2 {
@@ -379,7 +384,7 @@ footer {
 	}
 	.showPhoto {
 		height: 2.4rem;
-		top: 93%;
+		top: 91%;
 	}
 	.photoWrapper {
 		margin-top: -1rem;
@@ -414,10 +419,13 @@ footer {
 		gap: 1rem;
 		align-items: center;
 		justify-content: space-between;
-		padding-block: 1rem;
+		padding-block: 2rem;
 	}
 	.slide h4 {
 		text-align: right;
+	}
+	.slideTop {
+		padding-bottom: 1rem;
 	}
 	.photoWrapper {
 		display: flex;
@@ -432,7 +440,7 @@ footer {
 		background-color: var(--white);
 	}
 	.photoWrapper img {
-		width: 70%;
+		width: 100%;
 	}
 	blockquote {
 		width: 60%;

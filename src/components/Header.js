@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSlideIndex } from '../SlideIndexProvider';
 
 function Header() {
-	const { toggleSlideshow, isSlideshowActive } = useSlideIndex();
+	const { toggleSlideshow, isSlideshowActive, setCurrentIndex } = useSlideIndex();
 	return (
 		<header className='mainHeader'>
 			<nav>

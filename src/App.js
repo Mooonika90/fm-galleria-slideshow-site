@@ -1,5 +1,4 @@
 import Header from './components/Header';
-import Footer from './components/Footer';
 import Main from './pages/Main';
 import Slides from './pages/Slides';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -12,13 +11,10 @@ function App() {
 				<SlideIndexProvider>
 					<Header />
 
-					<main>
-						<Routes>
-							<Route path='/slides/:slideIndex' element={<Slides />} />
-							<Route path='/' element={<Main />} />
-						</Routes>
-					</main>
-					<Footer />
+					<Routes>
+						<Route path='/slides/:currentIndex' element={<Slides />} />
+						<Route path='/' element={<Main />} />
+					</Routes>
 				</SlideIndexProvider>
 			</Router>
 		</div>
@@ -26,5 +22,3 @@ function App() {
 }
 
 export default App;
-// artist={selectedPhoto?.artist?.name}
-// title={selectedPhoto?.name}
