@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useSlideIndex } from '../SlideIndexProvider';
 import { motion, AnimatePresence } from 'framer-motion';
 import Modal from '../components/Modal';
-import view from '../assets/icon-view-image.svg';
+// import view from '../assets/icon-view-image.svg';
 import Footer from '../components/Footer';
 
 function Slides() {
@@ -39,7 +39,7 @@ function Slides() {
 									alt={selectedPhoto?.name}
 								/>
 								<a className='showPhoto' onClick={showModal}>
-									<img src={view} alt='' />
+									<img src='../assets/icon-view-image.svg' alt='' />
 									view image
 								</a>
 							</div>

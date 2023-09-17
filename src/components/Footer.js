@@ -1,5 +1,5 @@
-import next from '../assets/icon-next-button.svg';
-import back from '../assets/icon-back-button.svg';
+// import next from '../assets/icon-next-button.svg';
+// import back from '../assets/icon-back-button.svg';
 import ProgressBar from './ProgressBar';
 import { useSlideIndex } from '../SlideIndexProvider';
 
@@ -17,14 +17,14 @@ function Footer() {
 				<div className='buttonsControl'>
 					<a onClick={prevSlide}>
 						<img
-							src={back}
+							src='../assets/icon-back-button.svg'
 							alt=''
 							className={currentIndex <= 0 ? 'disabled' : ''}
 						/>
 					</a>
 					<a onClick={nextSlide}>
 						<img
-							src={next}
+							src='../assets/icon-next-button.svg'
 							alt=''
 							className={currentIndex >= 14 ? 'disabled' : ''}
 						/>
